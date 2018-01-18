@@ -16,4 +16,3 @@ class BlenderRenderer(object):
     def render_file(self, file_name, op_string):
         blender_command = 'cd ' + self._blender_location + ' && ./blender ' + op_string
         return call(blender_command, shell=True)
-        # TO-DO: Report on failures (return code returned from call)
