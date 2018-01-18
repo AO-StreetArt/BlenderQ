@@ -16,7 +16,17 @@ or
 
 `sudo yum install python python-tk`
 
+Then, we can run the program with
+
+`python blenderq.py`
+
+Platform Support
+----------------
+
 BlenderQ is currently only compatible with Python2.7 on Linux platforms.
+
+Documentation
+-------------
 
 Documentation Coming Soon
 
