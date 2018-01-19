@@ -28,6 +28,10 @@ Please report any problems on `Github <https://github.com/AO-StreetArt/BlenderQ/
 
 License
 -------
+
 BlenderQ is licensed under the Apache2 license.  For further details, please refer to the LICENSE file.
 
-For any licensing concerns, please reach out to aostreetart9@gmail.com
+Contact
+-------
+
+For any concerns, please reach out to aostreetart9@gmail.com

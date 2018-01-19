@@ -31,11 +31,14 @@ And execute BlenderQ with:
 
 ``python blenderq.py``
 
-Now that you've got BlenderQ installed, go ahead and check out the :ref:`Use Page <use>`
-
 Configuring BlenderQ
 --------------------
 
 Before using BlenderQ, we have to tell it where to find the Blender executable.
 
 Open the text file, 'config.ini'.  Change the 'blender.location' value to the location of the executable on your computer.
+
+Next
+----
+
+Now that you've got BlenderQ installed, go ahead and check out the :ref:`Use Page <use>`
