@@ -67,16 +67,3 @@ class Session(object):
         self.param_list['hidden_ops'] = config.get('Blender', 'blender.hidden_ops')
         self.param_list['log_file'] = config.get('Logging', 'logging.file')
         self.param_list['log_level'] = config.get('Logging', 'logging.level')
-
-        #Set up the file logging config
-        if self.param_list['log_level'] == 'Debug':
-            logging.basicConfig(filename=self.param_list['log_file'], level=logging.DEBUG)
-        elif self.param_list['log_level'] == 'Info':
-            logging.basicConfig(filename=self.param_list['log_file'], level=logging.INFO)
-        elif self.param_list['log_level'] == 'Warning':
-            logging.basicConfig(filename=self.param_list['log_file'], level=logging.WARNING)
-        elif self.param_list['log_level'] == 'Error':
-            logging.basicConfig(filename=self.param_list['log_file'], level=logging.ERROR)
-        else:
-            print("Log level not set to one of the given options, defaulting to debug level")
-        logging.basicConfig(filename=self.param_list['log_file'], level=logging.DEBUG)

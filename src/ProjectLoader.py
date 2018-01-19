@@ -27,10 +27,11 @@ import logging
 
 class ProjectLoader(object):
     def __init__(self):
-        pass
+        self._logger = logging.getLogger("blenderq")
 
     # Takes a list of dictionaries as input and writes them back to JSON file
     def writeProject(self, filename, filelist, hidden_ops):
+        self._logger.info("Writing Project to file: %s" % filename)
         files_string = ''
         for elt in filelist:
             files_string += '{"filename": "%s", "ops": "%s"}, ' % (elt['filename'],
@@ -44,6 +45,7 @@ class ProjectLoader(object):
 
     # Takes a list/tuple of filenames as input
     def loadProject(self, filename):
+        self._logger.info("Loading Project from file: %s" % filename)
         return_map = None
         with open(filename, 'r') as json_file:
             return_map = json.load(json_file)

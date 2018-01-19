@@ -38,6 +38,8 @@ def path_leaf(path):
 class BlenderQFrame(Frame):
 
     def __init__(self, renderer, loader, default_ops=None, hidden_ops=None):
+        # Logger
+        self._logger = logging.getLogger("blenderq")
         # Renderer
         self._renderer = renderer
         # Loader
@@ -62,7 +64,7 @@ class BlenderQFrame(Frame):
         self.initUI()
 
     def newProject(self):
-        logging.info("New Project Called")
+        self._logger.info("New Project Called")
 
         # Clear the internal file list
         self._files = []
@@ -78,11 +80,11 @@ class BlenderQFrame(Frame):
         self.genButtons()
 
     def loadProject(self):
-        logging.info("Load Project Called")
+        self._logger.info("Load Project Called")
         # Find filenames of projects to load
         file_name = tkFileDialog.askopenfilename(parent=self,
                                                    title='Choose Project File')
-        logging.debug(file_name)
+        self._logger.debug(file_name)
         project_map = self._loader.loadProject(file_name)
         file_tuple = project_map['files']
         self._hidden_ops = project_map['hidden_ops']
@@ -99,38 +101,38 @@ class BlenderQFrame(Frame):
             entry.pack(fill=X, padx=5, expand=True)
             entry.insert(0, elt['ops'])
 
-            file_dict = {"filename": elt, "ops_box": entry, "file_label": lbl}
-            self._files.append(elt)
+            file_dict = {"filename": elt['filename'], "ops_box": entry, "file_label": lbl}
+            self._files.append(file_dict)
 
     def saveProject(self):
-        logging.info("Save Project Called")
+        self._logger.info("Save Project Called")
         file_name = tkFileDialog.asksaveasfilename(parent=self,
                                                    title='Choose Project File Name')
-        logging.debug(self._files)
+        self._logger.debug(self._files)
         self._loader.writeProject(file_name, self._files, self._hidden_ops_entry.get())
 
     def renderFiles(self):
-        logging.info("Render Called")
+        self._logger.info("Render Called")
         for elt in self._files:
-            logging.debug("File: %s" % elt['filename'])
-            logging.debug("Ops: %s" % elt['ops_box'].get())
+            self._logger.debug("File: %s" % elt['filename'])
+            self._logger.debug("Ops: %s" % elt['ops_box'].get())
             self._hidden_ops = self._hidden_ops_entry.get()
-            return_code = self._renderer.render_file(elt,
+            return_code = self._renderer.render_file(elt['filename'],
                                                      '%s %s' % (elt['ops_box'].get(),
                                                                 self._hidden_ops))
             if return_code != 0:
-                logging.error("Error encountered in Render: %s" % elt['filename'])
-                elt['file_label'].config(activeforeground="red")
+                self._logger.error("Error encountered in Render: %s" % elt['filename'])
+                elt['file_label'].config(foreground="red")
             else:
-                elt['file_label'].config(activeforeground="green")
+                elt['file_label'].config(foreground="green")
 
     def findFiles(self):
-        logging.info("Find Files Called")
+        self._logger.info("Find Files Called")
         file_tuple = tkFileDialog.askopenfilenames(parent=self,
                                                    title='Choose Blender Files',
                                                    filetypes = (("blend files","*.blend"),
                                                                 ("all files","*.*")))
-        logging.debug(file_tuple)
+        self._logger.debug(file_tuple)
         for elt in file_tuple:
             inner_frame = Frame(self._file_frame)
             inner_frame.pack(fill=X, expand=True)
