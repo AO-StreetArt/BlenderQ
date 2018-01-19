@@ -27,6 +27,7 @@ from Tkinter import Tk
 import logging
 
 from src.BlenderQFrame import BlenderQFrame
+from src.ProjectLoader import ProjectLoader
 from src.Renderer import BlenderRenderer
 from src.Session import Session
 
@@ -34,9 +35,10 @@ def main():
 
     session = Session()
     renderer = BlenderRenderer(session['blender_location'])
+    loader = ProjectLoader()
     root = Tk()
     root.geometry("750x550+300+300")
-    app = BlenderQFrame(renderer,
+    app = BlenderQFrame(renderer, loader,
                         default_ops=session['default_ops'],
                         hidden_ops=session['hidden_ops'])
     root.mainloop()

@@ -38,8 +38,5 @@ For any licensing concerns, please reach out to aostreetart9@gmail.com
 
 TO-DO
 -----
-
-1. Pipe STDOUT of Blender process to STDOUT of BlenderQ
-2. Save and Load Render Queues, add new button, auto-load last saved queue on startup
 3. Documentation
 4. Additional Platform Support
