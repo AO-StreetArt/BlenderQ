@@ -76,7 +76,7 @@ def main():
     renderer = BlenderRenderer(session['blender_location'])
     loader = ProjectLoader()
     root = Tk()
-    root.geometry("750x550+300+300")
+    root.geometry("900x550+300+300")
     app = BlenderQFrame(renderer, loader,
                         default_ops=session['default_ops'],
                         hidden_ops=session['hidden_ops'])

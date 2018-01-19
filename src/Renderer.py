@@ -32,6 +32,6 @@ class BlenderRenderer(object):
         self._logger = logging.getLogger("blenderq")
 
     def render_file(self, file_name, op_string):
-        blender_command = '%s/blender %s %s' % (self._blender_location, file_name, op_string)
+        blender_command = '%s %s %s' % (self._blender_location, file_name, op_string)
         self._logger.info("Blender Command: %s" % blender_command)
         return call(blender_command, shell=True)

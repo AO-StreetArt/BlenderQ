@@ -8,35 +8,26 @@ BlenderQ is a super-simple Python program that provides a UI for rendering multi
 Blender files, one after another.  It is absolutely barebones, so don't expect
 any bells and whistles.  Just queue up Blender Renders and go get a beer.
 
-We rely on Tkinter for the User Interface, so ensure you have it installed:
-
-`sudo apt-get install python python-tk`
-
-or
-
-`sudo yum install python python-tk`
-
-Then, we can run the program with
-
-`python blenderq.py`
+Oh, Did we mention that it's free?
 
 Platform Support
 ----------------
 
-BlenderQ is currently only compatible with Python2.7 on Linux platforms.
+BlenderQ is tested on Ubuntu 16.04, but the implementation should be compatible with
+any OS compatible with Blender.
 
 Documentation
 -------------
 
-Documentation Coming Soon
+Documentation available at `ReadTheDocs <http://blenderq.readthedocs.io/en/latest/>`__
+
+Issues
+------
+
+Please report any problems on `Github <https://github.com/AO-StreetArt/BlenderQ/issues>`__
 
 License
 -------
 BlenderQ is licensed under the Apache2 license.  For further details, please refer to the LICENSE file.
 
 For any licensing concerns, please reach out to aostreetart9@gmail.com
-
-TO-DO
------
-3. Documentation
-4. Additional Platform Support
