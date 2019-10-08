@@ -22,7 +22,7 @@ limitations under the License.
 Session to hold configuration values
 """
 
-import ConfigParser
+import configparser
 import logging
 
 class Session(object):
@@ -53,7 +53,7 @@ class Session(object):
         print("Pulling Core Config Data")
 
         # Read the config file, with a set of defaults
-        config = ConfigParser.SafeConfigParser({
+        config = configparser.SafeConfigParser({
             'blender.default_ops': '--render-output //test_ --render-format PNG --render-frame 1',
             'blender.hidden_ops': '--engine CYCLES --use-extension 1',
             'logging.file': 'bq.log',

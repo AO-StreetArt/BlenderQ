@@ -22,10 +22,10 @@ limitations under the License.
 Simple UI to do queued Blender Renders
 """
 
-from Tkinter import LEFT, RIGHT, BOTH, RAISED, Text, X, N, PhotoImage, Menu
-from ttk import Frame, Button, Style, Label, Entry
+from tkinter import LEFT, RIGHT, BOTH, RAISED, Text, X, N, PhotoImage, Menu
+from tkinter.ttk import Frame, Button, Style, Label, Entry
 
-import tkFileDialog
+import tkinter.filedialog
 
 import logging
 
@@ -82,7 +82,7 @@ class BlenderQFrame(Frame):
     def loadProject(self):
         self._logger.info("Load Project Called")
         # Find filenames of projects to load
-        file_name = tkFileDialog.askopenfilename(parent=self,
+        file_name = tkinter.filedialog.askopenfilename(parent=self,
                                                    title='Choose Project File')
         self._logger.debug(file_name)
         project_map = self._loader.loadProject(file_name)
@@ -106,7 +106,7 @@ class BlenderQFrame(Frame):
 
     def saveProject(self):
         self._logger.info("Save Project Called")
-        file_name = tkFileDialog.asksaveasfilename(parent=self,
+        file_name = tkinter.filedialog.asksaveasfilename(parent=self,
                                                    title='Choose Project File Name')
         self._logger.debug(self._files)
         self._loader.writeProject(file_name, self._files, self._hidden_ops_entry.get())
@@ -128,7 +128,7 @@ class BlenderQFrame(Frame):
 
     def findFiles(self):
         self._logger.info("Find Files Called")
-        file_tuple = tkFileDialog.askopenfilenames(parent=self,
+        file_tuple = tkinter.filedialog.askopenfilenames(parent=self,
                                                    title='Choose Blender Files',
                                                    filetypes = (("blend files","*.blend"),
                                                                 ("all files","*.*")))
