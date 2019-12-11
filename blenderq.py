@@ -22,7 +22,7 @@ limitations under the License.
 Simple UI to do queued Blender Renders
 """
 
-from Tkinter import Tk
+from tkinter import Tk
 
 import logging
 

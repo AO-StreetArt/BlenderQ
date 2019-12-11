@@ -10,11 +10,11 @@ Dependencies
 
 Ensure that you have the dependencies installed with:
 
-``sudo apt-get install git python python-tk``
+``sudo apt-get install git python3 python3-tk``
 
 for Debian based systems (Ubuntu, Debian, etc), or
 
-```sudo yum install git python python-tk``
+```sudo yum install git python3 python3-tk``
 
 for Redhat and CentOS.
 
@@ -29,7 +29,7 @@ Using a terminal or git bash:
 
 And execute BlenderQ with:
 
-``python blenderq.py``
+``python3 blenderq.py``
 
 Configuring BlenderQ
 --------------------
